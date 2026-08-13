@@ -1,0 +1,107 @@
+[package]
+name = "multi-cbor"
+version = "0.1.0"
+authors = [
+    "Pyfisch <pyfisch@posteo.org>",
+    "Steven Fackler <sfackler@gmail.com>",
+    "Dave Grantham <dwg@linuxprogrammer.org>"
+]
+edition = "2021"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+description = "CBOR support for serde with enhanced error handling and DAG-CBOR tags support."
+repository = "https://github.com/cryptidtech/multi-cbor"
+readme = "README.md"
+keywords = ["serde", "cbor", "serialization", "dag-cbor", "no_std"]
+categories = ["encoding"]
+
+[features]
+default = ["std"]
+std = ["serde/std"]
+alloc = ["serde/alloc"]
+unsealed_read_write = []
+# The `tags` feature uses `thread_local!` and `std::cell::RefCell` for the
+# tag-state plumbing that DAG-CBOR needs. It requires the `std` feature.
+tags = ["std"]
+
+[dependencies]
+half = "2.4"
+serde = { version = "1.0", default-features = false, features = ["alloc"] }
+
+[dev-dependencies]
+criterion = "0.8"
+hex = "0.4"
+proptest = "1.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_derive = "1.0"
+serde_json = "1.0"
+
+[[bench]]
+name = "ser_bench"
+harness = false
+path = "benches/ser_bench.rs"
+
+[[bench]]
+name = "de_bench"
+harness = false
+path = "benches/de_bench.rs"
+
+[[bench]]
+name = "value_bench"
+harness = false
+path = "benches/value_bench.rs"
+
+[[test]]
+name = "ser"
+path = "tests/ser.rs"
+
+[[test]]
+name = "de"
+path = "tests/de.rs"
+
+[[test]]
+name = "value"
+path = "tests/value.rs"
+
+[[test]]
+name = "tags"
+path = "tests/tags.rs"
+
+[[test]]
+name = "std_types"
+path = "tests/std_types.rs"
+
+[[test]]
+name = "enum"
+path = "tests/enum.rs"
+
+[[test]]
+name = "canonical"
+path = "tests/canonical.rs"
+
+[[test]]
+name = "bennofs"
+path = "tests/bennofs.rs"
+
+[[test]]
+name = "dos_protection"
+path = "tests/dos_protection.rs"
+
+[[example]]
+name = "tags"
+path = "examples/tags.rs"
+
+[[example]]
+name = "readme"
+path = "examples/readme.rs"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+cargo = { level = "warn", priority = -1 }
+# syn 2.x is pulled in by serde_derive and criterion; syn 3.x by procedural
+# macro crates in the dev/test graph. This clears when the ecosystem upgrades.
+multiple_crate_versions = { level = "allow", priority = 1 }
+
+[lints.rust]
+unsafe_code = "deny"
