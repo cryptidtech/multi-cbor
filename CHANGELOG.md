@@ -5,6 +5,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-08-17
+
+### Added
+
+- `src/cid.rs` with the `Cid` struct, `Builder`, `EncodedCid` and `LegacyEncodedCid` type aliases, and the `SIGIL` multicodec constant. The type implements `EncodeIntoBuffer`, `EncodeInto`, `TryDecodeFrom`, `Null`, `CodecInfo`, and `EncodingInfo` and supports v0, v1, v2, and v3 CIDs with binary and base-encoding round-tripping. Staged behind not-yet-wired module plumbing; not yet re-exported from the crate root.
+
 ## [0.1.0] - 2026-08-12
 
 ### Added
@@ -45,3 +51,5 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [DAG-CBOR]: https://github.com/ipld/carbites/blob/main/dag-cbor.md
 
 [0.1.0]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.0
+
+[0.1.1]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.1
