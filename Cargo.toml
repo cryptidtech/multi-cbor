@@ -1,6 +1,6 @@
 [package]
 name = "multi-cbor"
-version = "0.1.1"
+version = "0.1.2"
 authors = [
     "Pyfisch <pyfisch@posteo.org>",
     "Steven Fackler <sfackler@gmail.com>",
@@ -17,15 +17,15 @@ categories = ["encoding"]
 
 [features]
 default = ["std"]
-std = ["serde/std"]
-alloc = ["serde/alloc"]
+std = ["serde/std", "half/std"]
+alloc = ["serde/alloc", "half/alloc"]
 unsealed_read_write = []
 # The `tags` feature uses `thread_local!` and `std::cell::RefCell` for the
 # tag-state plumbing that DAG-CBOR needs. It requires the `std` feature.
 tags = ["std"]
 
 [dependencies]
-half = "2.7"
+half = { version = "2.7", default-features = false }
 serde = { version = "1.0", default-features = false, features = ["alloc"] }
 
 [dev-dependencies]
