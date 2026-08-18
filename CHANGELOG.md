@@ -5,6 +5,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2026-08-17
+
+### Fixed
+
+- Restored `no_std` build on `thumbv6m-none-eabi` (and other `no_std` targets) by declaring the `half` dependency with `default-features = false` and forwarding the `std`/`alloc` features of `multi-cbor` to `half`. Previously `half = "2.7"` enabled `half`'s default `std` feature unconditionally, so `cargo build --no-default-features --target thumbv6m-none-eabi` linked `std` into a target that does not provide it, failing the `Ensure no_std` CI job with `E0463: can't find crate for std`.
+
 ## [0.1.1] - 2026-08-17
 
 ### Added
@@ -53,3 +59,5 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [0.1.0]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.0
 
 [0.1.1]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.1
+
+[0.1.2]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.2
