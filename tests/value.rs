@@ -49,7 +49,7 @@ mod std_tests {
 
         let bytes = b"test byte string";
 
-        let array = vec![format!("one"), format!("two"), format!("three")];
+        let array = vec!["one".to_string(), "two".to_string(), "three".to_string()];
         let unit_array = vec![UnitStruct, UnitStruct, UnitStruct];
 
         let data = Struct {

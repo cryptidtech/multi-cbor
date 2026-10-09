@@ -64,7 +64,7 @@ multi-cbor = { version = "0.1", default-features = false }
 # multi-cbor = { version = "0.1", default-features = false, features = ["alloc"] }
 ```
 
-MSRV: Rust 1.85 (Edition 2021).
+MSRV: Rust 1.99 (Edition 2021).
 
 ## Usage
 
@@ -185,7 +185,7 @@ differences from upstream are:
 - The crate is renamed from `serde_cbor` to `multi-cbor`.
 - The `tags` cargo feature is added for DAG-CBOR tag round-tripping.
 - The `repository` field points at the `cryptidtech/multi-cbor` GitHub repo.
-- The MSRV is declared as 1.85.
+- The MSRV is declared as 1.99.
 - The dev-dependencies that referenced the `bs-*` BetterSign workspace crates
   are removed. The `cid_linked_list` example is removed for the same reason.
   A later release will re-point it at the standalone `multi-cid` crate.
