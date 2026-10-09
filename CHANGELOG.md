@@ -5,6 +5,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-10-08
+
+### Changed
+
+- Raised `rust-version` from 1.85 to 1.99. The CI MSRV job pins 1.99.0 and the README MSRV lines read 1.99. This is a minor release under the 0.x rule (bump of the leftmost nonzero digit): a raised MSRV is possibly breaking per the Cargo book rules.
+- Fixed the clippy 0.1.99 `useless_format` finding in `tests/value.rs`. No public API changes.
+
 ## [0.1.2] - 2026-08-17
 
 ### Fixed
@@ -61,3 +68,5 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [0.1.1]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.1
 
 [0.1.2]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.1.2
+
+[0.2.0]: https://github.com/cryptidtech/multi-cbor/releases/tag/v0.2.0
