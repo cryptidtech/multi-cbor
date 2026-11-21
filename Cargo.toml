@@ -23,6 +23,11 @@ unsealed_read_write = []
 # The `tags` feature uses `thread_local!` and `std::cell::RefCell` for the
 # tag-state plumbing that DAG-CBOR needs. It requires the `std` feature.
 tags = ["std"]
+# Feature names required by the shared family CI workflow test step. No code
+# in this crate gates on these yet.
+deprecated = []
+legacy_chacha20_fallback = []
+wasm = []
 
 [dependencies]
 half = { version = "2.7", default-features = false }
